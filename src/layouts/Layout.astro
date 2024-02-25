@@ -5,6 +5,8 @@ import InfoTag from "./socialMedia/InfoTag.astro";
 import SocialMediaPanel from "./socialMedia/SocialMediaPanel.astro";
 import GreyPanel from "./GreyPanel.astro";
 import Glows from "./Glows.astro";
+import Loader from "./Loader.astro";
+import LoadingPanel from "./LoadingPanel.astro";
 
 interface Props {
 	title: string;
@@ -80,6 +82,10 @@ const baseUrl = url.replace(/(es|en)(.*)$/, "");
 
 		<Glows cant={cantGlows} zIndex={-20} />
 
+		<LoadingPanel initialPos="left-0" />
+		<Loader />
+		<LoadingPanel initialPos="right-0" />
+
 		<style is:global>
 			/* @font-face {
 				font-family: Geist;
@@ -127,5 +133,15 @@ const baseUrl = url.replace(/(es|en)(.*)$/, "");
 				user-select: none;
 			}
 		</style>
+		<script>
+			import { showLoadingPanel } from "@/utils";
+			document.addEventListener("astro:before-preparation", () => {
+				console.log("pre");
+				showLoadingPanel(40);
+			});
+			document.addEventListener("astro:after-preparation", () => {
+				console.log("post");
+			});
+		</script>
 	</body>
 </html>

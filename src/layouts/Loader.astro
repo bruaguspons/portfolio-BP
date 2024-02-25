@@ -1,0 +1,70 @@
+<div class="fixed top-0 bottom-0 left-0 right-0 m-auto z-30 hidden">
+    <div class="relative w-20 aspect-square flex items-center justify-center">
+        <div class="absolute w-full h-full">
+            <div
+                class="loader w-full h-full rounded-full border-4 border-transparent border-r-green-400 [animation-duration:1.5s]"
+                style={{ animationPlayState: "paused" }}
+            >
+            </div>
+        </div>
+        <div class="absolute w-full h-full p-2">
+            <div
+                class="loader w-full h-full rounded-full border-4 border-transparent border-r-green-400 [animation-duration:1s]"
+                style={{ animationPlayState: "paused" }}
+            >
+            </div>
+        </div>
+        <div class="absolute w-full h-full p-4">
+            <div
+                class="loader w-full h-full rounded-full border-4 border-transparent border-r-green-400 [animation-duration:.5s]"
+                style={{ animationPlayState: "paused" }}
+            >
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* HTML:  */
+    .loader {
+        animation-name: l15;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    @keyframes l15 {
+        100% {
+            transform: rotate(1turn);
+        }
+    }
+</style>
+
+<!-- <style>
+    /* HTML: <div class="loader"></div> */
+    .loader {
+        width: 50px;
+        aspect-ratio: 1;
+        display: grid;
+        border: 4px solid #0000;
+        border-radius: 50%;
+        border-right-color: #25b09b;
+        animation: l15 1s infinite linear;
+    }
+    .loader::before,
+    .loader::after {
+        content: "";
+        grid-area: 1/1;
+        margin: 2px;
+        border: inherit;
+        border-radius: 50%;
+        animation: l15 2s infinite;
+    }
+    .loader::after {
+        margin: 8px;
+        animation-duration: 3s;
+    }
+    @keyframes l15 {
+        100% {
+            transform: rotate(1turn);
+        }
+    }
+</style> -->
